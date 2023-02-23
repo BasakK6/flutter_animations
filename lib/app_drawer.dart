@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations/core/context_extensions.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_container_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_cross_fade_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_padding_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_positioned_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
-import 'package:flutter_animations/project/context_extension.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -19,96 +23,10 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           buildDrawerHeader(context),
-          buildSetStateAnimationNavigations(context),
-          buildDrawerItemContainer(
-              title: "Animation Type 2",
-              iconData: Icons.star,
-              children: [
-                buildDrawerItem(title: "item1", onTap: () {}),
-                buildDrawerItem(title: "item2", onTap: () {}),
-                buildDrawerItem(title: "item3", onTap: () {}),
-                buildDrawerItem(title: "item4", onTap: () {}),
-              ]),
+          buildSetStateAnimationsMenu(context),
+          buildImplicitAnimationsMenu(context),
         ],
       ),
-    );
-  }
-
-  ExpansionTile buildSetStateAnimationNavigations(BuildContext context) {
-    return buildDrawerItemContainer(
-            title: "setState Animations",
-            iconData: Icons.star,
-            children: [
-              buildDrawerItem(
-                  title: "Right to Left Movement",
-                  onTap: () {
-                    goToPage(
-                      context,
-                      newPage: const SetStateAnimationPage(
-                          left: true,
-                          top: false,
-                          right: false,
-                          message: "I go Right and then Left"),
-                    );
-                  }),
-              buildDrawerItem(
-                  title: "Down to Up Movement",
-                  onTap: () {
-                    goToPage(
-                      context,
-                      newPage: const SetStateAnimationPage(
-                          left: false,
-                          top: true,
-                          right: false,
-                          message: "I go Down and then Up"),
-                    );
-                  }),
-              buildDrawerItem(
-                  title: "Main Diagonal Movement",
-                  onTap: () {
-                    goToPage(
-                      context,
-                      newPage: const SetStateAnimationPage(
-                          left: true,
-                          top: true,
-                          right: false,
-                          message: "I go Down Right and then Up Left"),
-                    );
-                  }),
-              buildDrawerItem(
-                  title: "Anti Diagonal Movement",
-                  onTap: () {
-                    goToPage(
-                      context,
-                      newPage: const SetStateAnimationPage(
-                          left: false,
-                          top: true,
-                          right: true,
-                          message: "I go Down Left and then Up Right"),
-                    );
-                  }),
-            ]);
-  }
-
-
-
-  ExpansionTile buildDrawerItemContainer({
-    required String title,
-    required IconData iconData,
-    required List<Widget> children,
-  }) {
-    return ExpansionTile(
-      title: Text(title),
-      leading: Icon(iconData),
-      children: children,
-    );
-  }
-
-  ListTile buildDrawerItem(
-      {required String title, required VoidCallback onTap}) {
-    return ListTile(
-      title: Text(title),
-      onTap: onTap,
     );
   }
 
@@ -134,6 +52,123 @@ class AppDrawer extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  ExpansionTile buildSetStateAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(
+        title: "setState Animations",
+        iconData: Icons.star,
+        children: [
+          buildDrawerItem(
+              title: "Right to Left Movement",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SetStateAnimationPage(
+                      left: true,
+                      top: false,
+                      right: false,
+                      message: "I go Right and then Left"),
+                );
+              }),
+          buildDrawerItem(
+              title: "Down to Up Movement",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SetStateAnimationPage(
+                      left: false,
+                      top: true,
+                      right: false,
+                      message: "I go Down and then Up"),
+                );
+              }),
+          buildDrawerItem(
+              title: "Main Diagonal Movement",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SetStateAnimationPage(
+                      left: true,
+                      top: true,
+                      right: false,
+                      message: "I go Down Right and then Up Left"),
+                );
+              }),
+          buildDrawerItem(
+              title: "Anti Diagonal Movement",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SetStateAnimationPage(
+                      left: false,
+                      top: true,
+                      right: true,
+                      message: "I go Down Left and then Up Right"),
+                );
+              }),
+        ]);
+  }
+
+  ExpansionTile buildImplicitAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(
+      title: "Implicit Animations",
+      iconData: Icons.star,
+      children: [
+        buildDrawerItem(
+            title: "Animated Padding",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedPaddingPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated Container",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedContainerPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated Positioned",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedPositionedPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated CrossFade",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedCrossFadePage(),
+              );
+            }),
+      ],
+    );
+  }
+
+  ExpansionTile buildDrawerItemContainer({
+    required String title,
+    required IconData iconData,
+    required List<Widget> children,
+  }) {
+    return ExpansionTile(
+      title: Text(title),
+      leading: Icon(iconData),
+      children: children,
+    );
+  }
+
+  ListTile buildDrawerItem(
+      {required String title, required VoidCallback onTap}) {
+    return ListTile(
+      title: Text(title),
+      onTap: onTap,
     );
   }
 }
