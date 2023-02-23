@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
+import 'package:flutter_animations/project/context_extension.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
+
+  void goToPage(BuildContext context, {required Widget newPage}) {
+    context.navigation.pushReplacement(MaterialPageRoute(builder: (context) {
+      return newPage;
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +19,7 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           buildDrawerHeader(context),
-          buildDrawerItemContainer(
-              title: "Animation Type 1",
-              iconData: Icons.star,
-              children: [
-                buildDrawerItem(title: "item1", onTap: () {}),
-                buildDrawerItem(title: "item2", onTap: () {}),
-                buildDrawerItem(title: "item3", onTap: () {}),
-                buildDrawerItem(title: "item4", onTap: () {}),
-              ]),
+          buildSetStateAnimationNavigations(context),
           buildDrawerItemContainer(
               title: "Animation Type 2",
               iconData: Icons.star,
@@ -33,6 +33,64 @@ class AppDrawer extends StatelessWidget {
       ),
     );
   }
+
+  ExpansionTile buildSetStateAnimationNavigations(BuildContext context) {
+    return buildDrawerItemContainer(
+            title: "setState Animations",
+            iconData: Icons.star,
+            children: [
+              buildDrawerItem(
+                  title: "Right to Left Movement",
+                  onTap: () {
+                    goToPage(
+                      context,
+                      newPage: const SetStateAnimationPage(
+                          left: true,
+                          top: false,
+                          right: false,
+                          message: "I go Right and then Left"),
+                    );
+                  }),
+              buildDrawerItem(
+                  title: "Down to Up Movement",
+                  onTap: () {
+                    goToPage(
+                      context,
+                      newPage: const SetStateAnimationPage(
+                          left: false,
+                          top: true,
+                          right: false,
+                          message: "I go Down and then Up"),
+                    );
+                  }),
+              buildDrawerItem(
+                  title: "Main Diagonal Movement",
+                  onTap: () {
+                    goToPage(
+                      context,
+                      newPage: const SetStateAnimationPage(
+                          left: true,
+                          top: true,
+                          right: false,
+                          message: "I go Down Right and then Up Left"),
+                    );
+                  }),
+              buildDrawerItem(
+                  title: "Anti Diagonal Movement",
+                  onTap: () {
+                    goToPage(
+                      context,
+                      newPage: const SetStateAnimationPage(
+                          left: false,
+                          top: true,
+                          right: true,
+                          message: "I go Down Left and then Up Right"),
+                    );
+                  }),
+            ]);
+  }
+
+
 
   ExpansionTile buildDrawerItemContainer({
     required String title,
