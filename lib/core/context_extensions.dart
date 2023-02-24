@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations/core/duration_items.dart';
 
 extension ContextExtension on BuildContext {
   NavigatorState get navigation => Navigator.of(this);
@@ -22,7 +23,7 @@ extension SnackBarExtension on BuildContext {
   void showSnackBar(String message) => scaffoldMessenger.showSnackBar(
         SnackBar(
           content: Text(message),
-          duration: const Duration(seconds: 2),
+          duration: const DurationItems.durationHigh(),
         ),
       );
 }

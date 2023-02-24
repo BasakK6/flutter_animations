@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
 
+import 'package:flutter_animations/core/duration_items.dart';
+
 class AnimatedPaddingPage extends StatefulWidget {
   const AnimatedPaddingPage({Key? key}) : super(key: key);
 
@@ -36,7 +38,7 @@ class _AnimatedPaddingPageState extends State<AnimatedPaddingPage> {
             ),
             AnimatedPadding(
               padding: EdgeInsets.only(left: leftPadding),
-              duration: const Duration(seconds: 1),
+              duration: const DurationItems.durationLow(),
               curve: Curves.bounceOut,
               child: const Text("I bounce out"),
               onEnd: (){

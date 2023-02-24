@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
 
+import 'package:flutter_animations/core/duration_items.dart';
+
 class AnimatedCrossFadePage extends StatefulWidget {
   const AnimatedCrossFadePage({Key? key}) : super(key: key);
 
@@ -42,7 +44,7 @@ class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
                 Icons.favorite_border,
                 size: 100,
               ),
-              duration: const Duration(seconds: 1),
+              duration: const DurationItems.durationLow(),
               crossFadeState:
                   like ? CrossFadeState.showFirst : CrossFadeState.showSecond,
             ),

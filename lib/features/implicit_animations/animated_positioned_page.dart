@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
 
+import 'package:flutter_animations/core/duration_items.dart';
+
 class AnimatedPositionedPage extends StatefulWidget {
   const AnimatedPositionedPage({Key? key}) : super(key: key);
 
@@ -46,7 +48,7 @@ class _AnimatedPositionedPageState extends State<AnimatedPositionedPage> {
                   height: context.dynamicHeight(0.4),
                 ),
                 AnimatedPositioned(
-                  duration: const Duration(seconds: 1),
+                  duration: const DurationItems.durationLow(),
                   top:topDistance,
                   left: leftDistance,
                   width: context.dynamicWidth(sizePercentage),

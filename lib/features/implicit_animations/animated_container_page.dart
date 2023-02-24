@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
+import 'package:flutter_animations/core/duration_items.dart';
 
 class AnimatedContainerPage extends StatefulWidget {
   const AnimatedContainerPage({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
             ),
             AnimatedContainer(
               color: Colors.pink[50],
-              duration: const Duration(seconds: 1),
+              duration: const DurationItems.durationLow(),
               width: context.dynamicWidth(widthPercentage),
               height: context.dynamicHeight(0.2),
               curve: Curves.bounceOut,
