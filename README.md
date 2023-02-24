@@ -2,7 +2,7 @@
 
 In this project I explored and used different animation options in flutter.
 
-## setState Animations
+## 1) setState Animations
 
 Animations are actually StatefulWidgets that use frequent setStates. 
 For example, let's say we have a state variable that specifies the position of a widget. 
@@ -38,5 +38,32 @@ Padding(
 )
 ```
 
+## 2) Implicit Animations
 
+Flutter provides many easy to use Animated widgets. 
+Many widgets have their animated version. 
+These widgets takes a value and a duration. 
+Whenever the value changes (state of the widget changes) the Animated widget animates this change in a given time (duration).
+> duration parameter allows you to set the amount of time an animation takes to complete
+
+In this project I explored AnimatedContainer, AnimatedCrossFade, AnimatedDefaultTextStyle,
+AnimatedList, AnimatedOpacity, AnimatedPadding, AnimatedPositioned and AnimatedRotation.
+
+Animated Widgets normally have optional curve and onEnd parameters. The curve parameter controls the animation effect.
+When curve is not specified, the linear animation curve is applied by default. 
+There are many curve options for us to choose such as easeIn and bounceOut. 
+The callback function given to the onEnd parameter fires when the animation is complete.
+
+Example:
+```dart
+AnimatedPadding(
+  padding: EdgeInsets.only(left: leftPadding), //we can change the value of the leftPadding with setState
+  duration: const DurationItems.durationLow(), 
+  curve: Curves.bounceOut,
+  child: const Text("I bounce out"),
+  onEnd: (){
+      context.showSnackBar("End of the animation");
+  },
+),
+```
 
