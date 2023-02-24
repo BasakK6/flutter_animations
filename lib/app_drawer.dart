@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
+import 'package:flutter_animations/features/hero_animations/dummy_data_list_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_container_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_cross_fade_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_default_textstyle_page.dart';
@@ -29,6 +30,7 @@ class AppDrawer extends StatelessWidget {
           buildDrawerHeader(context),
           buildSetStateAnimationsMenu(context),
           buildImplicitAnimationsMenu(context),
+          buildHeroAnimationsMenu(context),
         ],
       ),
     );
@@ -187,6 +189,17 @@ class AppDrawer extends StatelessWidget {
 
       ],
     );
+  }
+
+  ExpansionTile buildHeroAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(title: "Hero Animations", iconData: Icons.star, children: [
+      buildDrawerItem(title: "List View - Detail View Transition", onTap: (){
+        goToPage(
+          context,
+          newPage: DummyDataListPage(),
+        );
+      }),
+    ]);
   }
 
   ExpansionTile buildDrawerItemContainer({
