@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_container_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_cross_fade_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_default_textstyle_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_list_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_opacity_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_padding_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_positioned_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animated_rotation_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
 
@@ -148,6 +152,39 @@ class AppDrawer extends StatelessWidget {
                 newPage: const AnimatedCrossFadePage(),
               );
             }),
+        buildDrawerItem(
+            title: "Animated Opacity",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedOpacityPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated DefaultTextStyle",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedDefaultTextStylePage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated Rotation",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedRotationPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animated List",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimatedListPage(),
+              );
+            }),
+
       ],
     );
   }
