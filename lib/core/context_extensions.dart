@@ -7,6 +7,8 @@ extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
   ScaffoldMessengerState get scaffoldMessenger => ScaffoldMessenger.of(this);
+
+  ThemeData get themeData => Theme.of(this);
 }
 
 extension SizeExtension on BuildContext {
@@ -26,4 +28,8 @@ extension SnackBarExtension on BuildContext {
           duration: const DurationItems.durationHigh(),
         ),
       );
+}
+
+extension ThemeExtension on BuildContext{
+  TextTheme get textTheme => themeData.textTheme;
 }
