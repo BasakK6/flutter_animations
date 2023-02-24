@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
+import 'package:flutter_animations/core/context_extensions.dart';
 import 'package:flutter_animations/core/duration_items.dart';
 
 class AnimatedRotationPage extends StatefulWidget {
@@ -37,6 +38,10 @@ class _AnimatedRotationPageState extends State<AnimatedRotationPage> {
             AnimatedRotation(
               turns: turns,
               duration: const DurationItems.durationLow(),
+              curve: Curves.bounceOut,
+              onEnd: (){
+                context.showSnackBar("End of the animation");
+              },
               child: const Text("I turn 90 degrees"),
             )
           ],

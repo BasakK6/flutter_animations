@@ -43,6 +43,9 @@ class _AnimatedDefaultTextStylePageState
                 style: (isLargeText ? context.textTheme.titleLarge :context.textTheme.titleSmall) ?? const TextStyle(),
                 duration: const DurationItems.durationLow(),
                 curve: Curves.bounceOut,
+                onEnd: (){
+                  context.showSnackBar("End of the animation");
+                },
                 child: const Text("My style changes"),),
           ],
         ),

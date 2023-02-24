@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/app_drawer.dart';
+import 'package:flutter_animations/core/context_extensions.dart';
 import 'package:flutter_animations/core/duration_items.dart';
 
 class AnimatedOpacityPage extends StatefulWidget {
@@ -38,7 +39,13 @@ class _AnimatedOpacityPageState extends State<AnimatedOpacityPage> {
               opacity: opacity,
               duration: const DurationItems.durationLow(),
               curve: Curves.bounceOut,
-              child: const Text("My opacity changes", style: TextStyle(fontWeight: FontWeight.bold),),
+              onEnd: () {
+                context.showSnackBar("End of the animation");
+              },
+              child: const Text(
+                "My opacity changes",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
