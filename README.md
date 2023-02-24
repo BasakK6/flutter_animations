@@ -67,3 +67,25 @@ AnimatedPadding(
 ),
 ```
 
+## 3) Hero Animation
+
+> When a PageRoute is pushed or popped with the Navigator, the entire screen's content is replaced. An old route disappears and a new route appears. If there's a common visual feature on both routes then it can be helpful for orienting the user for the feature to physically move from one page to the other during the routes' transition. Such an animation is called a hero animation. The hero widgets "fly" in the Navigator's overlay during the transition and while they're in-flight they're, by default, not shown in their original locations in the old and new routes.
+ 
+In this project, I used Image and Text widgets with Hero animation while switching from list view to detail view.
+Using the same tag in both routes is very important while using Hero Widget. 
+We can also wrap our Text widget inside a Material widget while using it with Hero animation. 
+This step preserves the material design while changing routes.
+
+Example:
+```dart
+Hero(
+  tag: "shared_text_tag",
+  child: Material(
+      color: Colors.transparent,
+      child: Text(
+          "I will get animated",
+          style: context.textTheme.titleMedium,
+      ),
+  ),
+),
+```
