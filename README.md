@@ -67,6 +67,28 @@ AnimatedPadding(
 ),
 ```
 
+We can also control the value of the Animated widgets without setState by using them inside a FutureBuilder or StreamBuilder.
+
+```dart
+FutureBuilder(
+    future: _future,
+    builder: (context, snapshot) {
+        double opacity = 0;
+                
+        if (snapshot.connectionState == ConnectionState.done) {
+          opacity = 1;
+        }
+
+        return AnimatedOpacity(
+          opacity: opacity,
+          duration: const DurationItems.durationLow(),
+          child: const Text("The async work is done"),
+        );
+    },
+),
+```
+
+
 ## 3) Hero Animation
 
 > When a PageRoute is pushed or popped with the Navigator, the entire screen's content is replaced. An old route disappears and a new route appears. If there's a common visual feature on both routes then it can be helpful for orienting the user for the feature to physically move from one page to the other during the routes' transition. Such an animation is called a hero animation. The hero widgets "fly" in the Navigator's overlay during the transition and while they're in-flight they're, by default, not shown in their original locations in the old and new routes.
