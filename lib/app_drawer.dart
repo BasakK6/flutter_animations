@@ -9,6 +9,7 @@ import 'package:flutter_animations/features/implicit_animations/animated_opacity
 import 'package:flutter_animations/features/implicit_animations/animated_padding_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_positioned_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_rotation_page.dart';
+import 'package:flutter_animations/features/implicit_animations/animation_in_future_builder_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
 
@@ -184,6 +185,14 @@ class AppDrawer extends StatelessWidget {
               goToPage(
                 context,
                 newPage: const AnimatedListPage(),
+              );
+            }),
+        buildDrawerItem(
+            title: "Animation in FutureBuilder",
+            onTap: () {
+              goToPage(
+                context,
+                newPage: const AnimationInFutureBuilderPage(),
               );
             }),
 
