@@ -46,6 +46,11 @@ These widgets takes a value and a duration.
 Whenever the value changes (state of the widget changes) the Animated widget animates this change in a given time (duration).
 > duration parameter allows you to set the amount of time an animation takes to complete
 
+> Animators set an initial position and a final position for the object they are animating. Next, they rely on software to compute all of the positions for the object between the initial and the final position that they defined. The process of computing animation values between a starting and ending position is called interpolation.
+As a developer, interpolation vastly simplifies how you reason about and create your animations. Instead of thinking of an animation in terms of hundreds (or thousands) of frames, you can think of an animation as a starting value and an ending value, and allow interpolation to take care of the rest!
+
+Animated widgets simplifies the interpolation.
+
 In this project I explored AnimatedContainer, AnimatedCrossFade, AnimatedDefaultTextStyle,
 AnimatedList, AnimatedOpacity, AnimatedPadding, AnimatedPositioned and AnimatedRotation.
 
@@ -88,6 +93,7 @@ FutureBuilder(
 ),
 ```
 
+**Note**: We can use Tween and Transition widgets (eg. AlignTransition) to animate a widget between 2 values such as 2 colors or two positions. These concepts were explored in the [Animated List](https://github.com/BasakK6/flutter_animations/blob/master/lib/features/implicit_animations/animated_list_page.dart) section.
 
 ## 3) Hero Animation
 
