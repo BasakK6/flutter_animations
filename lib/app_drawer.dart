@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
+import 'package:flutter_animations/features/explicit_animations/alignment_change_page.dart';
+import 'package:flutter_animations/features/explicit_animations/size_change_page.dart';
 import 'package:flutter_animations/features/hero_animations/dummy_data_list_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_container_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_cross_fade_page.dart';
@@ -12,6 +14,9 @@ import 'package:flutter_animations/features/implicit_animations/animated_rotatio
 import 'package:flutter_animations/features/implicit_animations/animation_in_future_builder_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
+
+import 'features/explicit_animations/animated_icon_page.dart';
+import 'features/explicit_animations/vertical_movement_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -32,6 +37,7 @@ class AppDrawer extends StatelessWidget {
           buildSetStateAnimationsMenu(context),
           buildImplicitAnimationsMenu(context),
           buildHeroAnimationsMenu(context),
+          buildExplicitAnimationsMenu(context),
         ],
       ),
     );
@@ -195,20 +201,65 @@ class AppDrawer extends StatelessWidget {
                 newPage: const AnimationInFutureBuilderPage(),
               );
             }),
-
       ],
     );
   }
 
   ExpansionTile buildHeroAnimationsMenu(BuildContext context) {
-    return buildDrawerItemContainer(title: "Hero Animations", iconData: Icons.star, children: [
-      buildDrawerItem(title: "List View - Detail View Transition", onTap: (){
-        goToPage(
-          context,
-          newPage: DummyDataListPage(),
-        );
-      }),
-    ]);
+    return buildDrawerItemContainer(
+        title: "Hero Animations",
+        iconData: Icons.star,
+        children: [
+          buildDrawerItem(
+              title: "List View - Detail View Transition",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: DummyDataListPage(),
+                );
+              }),
+        ]);
+  }
+
+  ExpansionTile buildExplicitAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(
+        title: "Explicit Animations",
+        iconData: Icons.star,
+        children: [
+          buildDrawerItem(
+              title: "Vertical Movement",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const VerticalMovementPage(),
+                );
+              }),
+          buildDrawerItem(
+              title: "Animated Icon",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const AnimatedIconPage(),
+                );
+              }),
+          buildDrawerItem(
+              title: "Size Change",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SizeChangePage(),
+                );
+              }),
+          buildDrawerItem(
+              title: "Alignment Change",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const AlignmentChangePage(),
+                );
+              }),
+
+        ]);
   }
 
   ExpansionTile buildDrawerItemContainer({
