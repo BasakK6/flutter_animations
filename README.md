@@ -117,3 +117,40 @@ Hero(
   ),
 ),
 ```
+
+## 4) Explicit Animations
+
+Explicit animations gives us more control over the animated widget than the Implicit animations. 
+Implicit animations only animates the change in the value. Once the value is reached, the animation stops. 
+However with the explicit animations we can repeat the animation infinitely and do many more with the help of an AnimationController.
+
+> The AnimationController is a special Animation object that generates a new value whenever the hardware is ready for a new frame. All explicit animations require an AnimationController.
+
+> The AnimationController class represents an interpolated range of values that define all possible frames for a particular animation. AnimationController has a value property that represents the current value of the animation within the range of other frame values. AnimationController is playable—it provides controls for triggering changes to its value property (between its lowerBound and upperBound) over a specified period of time (the duration parameter). Once triggered, AnimationController changes its value property over time to the other values in the range between upperBound and lowerBound. This change in value over time is what creates the animation effect.
+
+**In order to create an explicit widget, we should follow these steps:**
+
+1) Use  with SingleTickerProviderStateMixin in the state class
+    > An AnimationController needs a TickerProvider—the AnimationController constructor takes a required parameter vsync that must implement a TickerProvider interface
+
+    >**NOTE**: We can also use TickerProviderStateMixin to make our widget available as a TickerProvider for AnimationController. Here are some considerations for deciding between the two:
+    >- If you are only creating a single AnimationController from a State object you can use the SingleTickerProviderStateMixin.
+    >- If you need to create more than one AnimationController over the lifetime of a State object, use the TickerProviderStateMixin instead. The SingleTickerProviderStateMixin is slightly more efficient than TickerProviderStateMixin in the case of the class only ever needing one Ticker.
+ 
+2) Create an animation controller object in the state class
+3) Instantiate the animation controller with parameters (vsync, duration, lowerBound, upperBound) in initState method
+4) Register a listener with AnimationController that calls setState() each time AnimationController changes its value (after the instatiation)
+    > AnimationController invokes the callback function that is given to the listener every time AnimationController changes its value property.
+   
+5) Use the required behavior of the controller (repeat, forward, reverse, stop, reset)
+6) Dispose the controller in the dispose method to prevent memory leaks
+
+**AnimationController also provides lifecycle methods**
+
+> The controller’s status has four possible values: dismissed, forward, reverse, and completed.
+
+**NOTE**: Animation controller has a value of type <ins>double</ins>. We can directly use the controller in animations that use double. But if the value that is animated is not double we can use Transition widgets and Tween to animate between 2 values.
+For example we can change the Alignment of a widget with AlignTransition and a Tween<AlignmentGeometry>. See the example in [Alignment Change](https://github.com/BasakK6/flutter_animations/blob/master/lib/features/explicit_animations/alignment_change_page.dart) section.
+
+**Note**: Many widgets such as Align, DecoratedBox, Rotation, Positioned have versions with Transition added to the end of their name. These widgets allow the user to fully manage the animation with an AnimationController.
+When these Transition widgets are not enough, we can develop our own explicit animated widgets by extending the **AnimatedWidget** class or using the builder method of the **AnimatedBuilder** (without creating a new widget).
