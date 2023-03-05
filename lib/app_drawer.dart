@@ -13,6 +13,7 @@ import 'package:flutter_animations/features/implicit_animations/animated_positio
 import 'package:flutter_animations/features/implicit_animations/animated_rotation_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animation_in_future_builder_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
+import 'package:flutter_animations/features/third_party_animations/lottie_animations/lottie_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
 
 import 'features/explicit_animations/animated_icon_page.dart';
@@ -38,6 +39,7 @@ class AppDrawer extends StatelessWidget {
           buildImplicitAnimationsMenu(context),
           buildHeroAnimationsMenu(context),
           buildExplicitAnimationsMenu(context),
+          buildThirdPartyAnimationsMenu(context),
         ],
       ),
     );
@@ -258,8 +260,25 @@ class AppDrawer extends StatelessWidget {
                   newPage: const AlignmentChangePage(),
                 );
               }),
-
         ]);
+  }
+
+  ExpansionTile buildThirdPartyAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(
+      title: "Third Party Animations",
+      iconData: Icons.star,
+      children: [
+        buildDrawerItem(
+          title: "Lottie Animations",
+          onTap: () {
+            goToPage(
+              context,
+              newPage: const LottieAnimationPage(),
+            );
+          },
+        ),
+      ],
+    );
   }
 
   ExpansionTile buildDrawerItemContainer({
