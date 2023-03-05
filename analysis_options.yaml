@@ -62,7 +62,6 @@ linter:
     await_only_futures: true
     camel_case_extensions: true
     camel_case_types: true
-    cascade_invocations: true
     cast_nullable_to_non_nullable: true
     conditional_uri_does_not_exist: true
     constant_identifier_names: true
