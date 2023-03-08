@@ -154,3 +154,9 @@ For example we can change the Alignment of a widget with AlignTransition and a T
 
 **Note**: Many widgets such as Align, DecoratedBox, Rotation, Positioned have versions with Transition added to the end of their name. These widgets allow the user to fully manage the animation with an AnimationController.
 When these Transition widgets are not enough, we can develop our own explicit animated widgets by extending the **AnimatedWidget** class or using the builder method of the **AnimatedBuilder** (without creating a new widget).
+
+## 5) Third Party Animations
+
+We can also use interactive animations that are created by other artists. 
+There are many useful sites that provide such animations such as [Lottie](https://lottiefiles.com) and [Rive.app](https://rive.app).
+There are also corresponding Flutter packages to handle the animation files. In this project I made an example using a loading animation that I chose from Lottie Files.
