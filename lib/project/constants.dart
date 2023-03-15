@@ -12,4 +12,5 @@ class Constants{
   static const String profilePicturePath = "assets/gifs/profile_picture.gif";
   static const String lottieNetworkPath= "https://assets9.lottiefiles.com/private_files/lf30_0zgy32rj.json";
   static const String lottieAssetPath = "assets/animations/lottie/loading-cube-animation.zip";
+  static const String randomImagePath = "https://picsum.photos/id/237/200/300";
 }

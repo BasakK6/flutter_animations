@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/core/context_extensions.dart';
 import 'package:flutter_animations/features/explicit_animations/alignment_change_page.dart';
+import 'package:flutter_animations/features/explicit_animations/animated_icon_page.dart';
 import 'package:flutter_animations/features/explicit_animations/size_change_page.dart';
+import 'package:flutter_animations/features/explicit_animations/vertical_movement_page.dart';
 import 'package:flutter_animations/features/hero_animations/dummy_data_list_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_container_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animated_cross_fade_page.dart';
@@ -13,11 +15,10 @@ import 'package:flutter_animations/features/implicit_animations/animated_positio
 import 'package:flutter_animations/features/implicit_animations/animated_rotation_page.dart';
 import 'package:flutter_animations/features/implicit_animations/animation_in_future_builder_page.dart';
 import 'package:flutter_animations/features/set_state_animations/set_state_animation_page.dart';
+import 'package:flutter_animations/features/sliver_animations/sliver_appbar_and_bottomnavbar_animation.dart';
+import 'package:flutter_animations/features/sliver_animations/sliver_appbar_page.dart';
 import 'package:flutter_animations/features/third_party_animations/lottie_animations/lottie_animation_page.dart';
 import 'package:flutter_animations/project/constants.dart';
-
-import 'features/explicit_animations/animated_icon_page.dart';
-import 'features/explicit_animations/vertical_movement_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -40,6 +41,7 @@ class AppDrawer extends StatelessWidget {
           buildHeroAnimationsMenu(context),
           buildExplicitAnimationsMenu(context),
           buildThirdPartyAnimationsMenu(context),
+          buildSliverAnimationsMenu(context)
         ],
       ),
     );
@@ -279,6 +281,30 @@ class AppDrawer extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  ExpansionTile buildSliverAnimationsMenu(BuildContext context) {
+    return buildDrawerItemContainer(
+        title: "Sliver Animations",
+        iconData: Icons.star,
+        children: [
+          buildDrawerItem(
+              title: "Sliver AppBar",
+              onTap: () {
+                goToPage(
+                  context,
+                  newPage: const SliverAppBarPage(),
+                );
+              }),
+          buildDrawerItem(
+            title: "Sliver AppBar and BottomNavBar Animation",
+            onTap: () {
+              goToPage(context,
+                  newPage:
+                  const SliverAppBarAndBottomNavBarAnimationPage());
+            },
+          ),
+        ]);
   }
 
   ExpansionTile buildDrawerItemContainer({
