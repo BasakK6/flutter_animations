@@ -160,3 +160,14 @@ When these Transition widgets are not enough, we can develop our own explicit an
 We can also use interactive animations that are created by other artists. 
 There are many useful sites that provide such animations such as [Lottie](https://lottiefiles.com) and [Rive.app](https://rive.app).
 There are also corresponding Flutter packages to handle the animation files. In this project I made an example using a loading animation that I chose from Lottie Files.
+
+## 6) Sliver Animations
+
+> A sliver is a portion of a scrollable area that you can define to behave in a special way. You can use slivers to achieve custom scrolling effects, such as elastic scrolling.
+
+We can achieve Sliver animations by using CustomScrollView or NestedScrollView.
+With CustomScrollView, we should use widgets that start with "Sliver" such as SliverAppBar, SliverList or SliverGrid.
+We can also wrap our normal widgets with SliverToBoxAdapter too. With NestedScrollView, we have headerSliverBuilder parameter that also provides "bodyIsScrolled" boolean variable to check whether the user has scrolled the page or not.
+
+In this project I used SliverAppBar, SliverList and SliverToBoxAdapter to animate a background image on the AppBar. 
+In addition, I animated closing a BottomNavigationBar when the user scrolls. 
