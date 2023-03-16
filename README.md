@@ -4,6 +4,8 @@ In this project I explored and used different animation options in flutter.
 
 ## 1) setState Animations
 
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/setState_animations_screen_recording_android.gif?raw=true" alt="setState animations android screen recording" width="250"/>
+
 Animations are actually StatefulWidgets that use frequent setStates. 
 For example, let's say we have a state variable that specifies the position of a widget. 
 If we change this variable very frequently and continuously, the widget will appear to be animated.
@@ -39,6 +41,8 @@ Padding(
 ```
 
 ## 2) Implicit Animations
+
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/implicit_animations_android_screen_recording.gif?raw=true" alt="implicit animations android screen recording" width="250"/>
 
 Flutter provides many easy to use Animated widgets. 
 Many widgets have their animated version. 
@@ -97,6 +101,8 @@ FutureBuilder(
 
 ## 3) Hero Animation
 
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/hero_animation_android_screen_recording.gif?raw=true" alt="hero animation android screen recording" width="250"/>
+
 > When a PageRoute is pushed or popped with the Navigator, the entire screen's content is replaced. An old route disappears and a new route appears. If there's a common visual feature on both routes then it can be helpful for orienting the user for the feature to physically move from one page to the other during the routes' transition. Such an animation is called a hero animation. The hero widgets "fly" in the Navigator's overlay during the transition and while they're in-flight they're, by default, not shown in their original locations in the old and new routes.
  
 In this project, I used Image and Text widgets with Hero animation while switching from list view to detail view.
@@ -119,6 +125,8 @@ Hero(
 ```
 
 ## 4) Explicit Animations
+
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/explicit_animations_android_screen_recording.gif?raw=true" alt="explicit animations android screen recording" width="250"/>
 
 Explicit animations gives us more control over the animated widget than the Implicit animations. 
 Implicit animations only animates the change in the value. Once the value is reached, the animation stops. 
@@ -157,11 +165,15 @@ When these Transition widgets are not enough, we can develop our own explicit an
 
 ## 5) Third Party Animations
 
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/third_party_animations_android_screen_recording.gif?raw=true" alt="third party animations android screen recording" width="250"/>
+
 We can also use interactive animations that are created by other artists. 
 There are many useful sites that provide such animations such as [Lottie](https://lottiefiles.com) and [Rive.app](https://rive.app).
 There are also corresponding Flutter packages to handle the animation files. In this project I made an example using a loading animation that I chose from Lottie Files.
 
 ## 6) Sliver Animations
+
+<img src="https://github.com/BasakK6/flutter_animations/blob/master/readme_assets/sliver_animations_android_screen_recording.gif?raw=true" alt="sliver animations android screen recording" width="250"/>
 
 > A sliver is a portion of a scrollable area that you can define to behave in a special way. You can use slivers to achieve custom scrolling effects, such as elastic scrolling.
 
